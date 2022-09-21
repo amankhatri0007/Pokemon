@@ -1,0 +1,22 @@
+.no-data{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.base-exp{
+    text-align: right;
+}
+.toolbar-css{
+    --background: #009B77;
+    color:white
+}
+
+.heading-color{
+    color: #009B77;
+}
+
+.remove-padding{
+    padding: 0;
+}

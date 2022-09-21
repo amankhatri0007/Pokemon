@@ -1,0 +1,43 @@
+<ion-content>
+  <ion-list>
+    <ion-item (click) = "navigateHandler(item)" *ngFor="let item of list" detail="true">
+      <ion-thumbnail slot="start">
+        <img 
+        [src]="item.imageUrl"
+        >
+      </ion-thumbnail>
+      <ion-label>
+        <strong class="heading-css">{{item.name}}</strong>
+        <ion-label>Base Experience • {{item.baseExperience}}</ion-label>
+        <h5>{{ today | date:'short'}}</h5>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="list.length === 0">
+    <ion-item *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]">
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <strong class="heading-css"> <ion-skeleton-text animated></ion-skeleton-text></strong>
+        <ion-label> <ion-skeleton-text animated></ion-skeleton-text></ion-label>
+        <h5> <ion-skeleton-text animated></ion-skeleton-text></h5>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="scroll($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading More data..."
+    ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+
+
+
+
+
+

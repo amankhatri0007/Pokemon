@@ -1,0 +1,27 @@
+<!--Application Header-->
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar-css">
+    <ion-title>
+      Pokemon's
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!--Render List-->
+  <app-list 
+      *ngIf="!error"
+      [list]="pokemons"
+      (loadMore)="loadMoreData($event)"
+      (navigate)="navigateHandler($event)">
+  </app-list>
+  <ion-content *ngIf="error">
+    <main class="no-data">
+      <ion-label>Opps!</ion-label>
+      <ion-label>Something went wrong</ion-label>
+      <ion-button (click)="doRefresh()" shape="round" class="btn-css">
+        <ion-icon button class="icon-color" name="reload-circle-sharp" size="large"></ion-icon>
+        Try Again
+      </ion-button>
+    </main>
+  </ion-content>
+</ion-content>

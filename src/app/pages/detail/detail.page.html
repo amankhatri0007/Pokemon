@@ -1,0 +1,43 @@
+<!--Application Header-->
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar-css">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="remove-padding" *ngIf="details">
+      {{details.name}} details
+    </ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content *ngIf="details">
+  <img [src]="details.imageUrl">
+  <ion-card-header>
+    <ion-card-title class="heading-color"> {{details.name}}</ion-card-title>
+    <ion-card-subtitle>{{ today | date:'short'}}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+  <ion-text color="dark"><strong>Pokemon (an abbreviation for Pocket Monsters in Japan) is a Japanese media franchise managed by The Pokémon Company, a company founded by Nintendo, Game Freak, and Creatures. The franchise was created by Satoshi Tajiri in 1996.</strong></ion-text>
+  </ion-card-content>
+  <ion-item>
+    <ion-label>Base Experience</ion-label>
+    <ion-label class="base-exp">{{details.baseExperience}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Height</ion-label>
+    <ion-label class="base-exp">{{details.height}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Weight</ion-label>
+    <ion-label class="base-exp">{{details.weight}}</ion-label>
+  </ion-item>
+</ion-content>
+
+<!--Fallback Message-->
+<ion-content *ngIf="!details">
+  <main class="no-data">
+    <ion-label>Oops!</ion-label>
+    <ion-label>No Data Available.Please try again later</ion-label>
+  </main>
+</ion-content>
